@@ -7,14 +7,14 @@ from KMeans_microblog import KmeansMB
 texts = {}
 textnum = 0
 
-with open('stopwords_chinese', 'r') as f:
+with open('stopwords_chinese.txt', 'r') as f:
     stopwords = []
     for line in f:
         word = str(line).rstrip()
         stopwords.append(word)
 stopwords_set = set(stopwords)
 
-with open("texts", "r") as f:
+with open("text.txt", "r") as f:
     for line in f:
         text = str(line).rstrip()
         word_list = jieba.cut(text)
@@ -26,7 +26,7 @@ with open("texts", "r") as f:
         textnum += 1
 
 
-with codecs.open('result', 'w', 'utf-8') as f:
+with codecs.open('text_processed.txt', 'w', 'utf-8') as f:
     for i in range(textnum):
         for word in texts[i]:
             f.write(word+' ')
