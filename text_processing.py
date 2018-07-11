@@ -2,7 +2,7 @@
 import jieba
 import codecs
 import numpy as np
-from KMeans_microblog import KmeansMB
+from KMeans_shorttext import KmeansST
 
 texts = {}
 textnum = 0
@@ -46,7 +46,7 @@ for i in range(textnum):
 
 # print(texts_vectors)
 
-cluster = KmeansMB(4, texts_vectors)
+cluster = KmeansST(4, texts_vectors)
 cluster.iterate()
 cluster.print_result()
 

@@ -3,13 +3,13 @@ import numpy as np
 import random
 
 
-class KmeansMB:
+class KmeansST:
 
-    def __init__(self, k, MB):
+    def __init__(self, k, ST):
         self.maxiteration = 1000
         self.k = k
-        self.MB = MB
-        self.num = MB.shape[0]
+        self.ST = ST
+        self.num = ST.shape[0]
         self.distmatrix = np.zeros((self.num, self.num))
         self.centers = []
         self.clusters = np.zeros(self.num)
@@ -44,7 +44,7 @@ class KmeansMB:
     def distmatrix_compute(self):  # compute the distance matrix
         for i in range(self.num-1):
             for j in range(i+1, self.num):
-                self.distmatrix[i][j] = self.distance_compute(self.MB[i], self.MB[j])
+                self.distmatrix[i][j] = self.distance_compute(self.ST[i], self.ST[j])
                 self.distmatrix[j][i] = self.distmatrix[i][j]
 
     def center_initialize(self):  # using the method of k-means++ to initialize the centers
