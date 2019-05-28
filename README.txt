@@ -1,0 +1,1 @@
+A simple K-means method for clustering Chinese short text.
